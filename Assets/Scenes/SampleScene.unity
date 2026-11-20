@@ -4893,6 +4893,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5539398561577221019, guid: ba0b72a68577c9a43a5570e8005b5613, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5539398561577221019, guid: ba0b72a68577c9a43a5570e8005b5613, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 21a36d2c7004bdb49a28f9f7c1ec5c4e, type: 2}
+    - target: {fileID: 6216904246444026912, guid: ba0b72a68577c9a43a5570e8005b5613, type: 3}
+      propertyPath: maxSpeed
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 6216904246444026912, guid: ba0b72a68577c9a43a5570e8005b5613, type: 3}
+      propertyPath: jumpForce
+      value: 6.5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

@@ -26,7 +26,7 @@ public class PlatformerMovement : MonoBehaviour
     // Platformer specific variables
     private CircleCollider2D groundCheckCollider;
     private LayerMask groundLayer = ~0; // ~0 is referring to EVERY layer. Do you want a specific layer? Serialize the variable and assign the Layer of your choice.
-    private Vector2 velocity;
+    [SerializeField] private Vector2 velocity;
     private bool jumpInput;
     private bool jumpReleased;
     private bool wasGrounded;
@@ -68,6 +68,7 @@ public class PlatformerMovement : MonoBehaviour
             else
             {
                 // Has jumped. Play jump sound and/or trigger jump animation etc
+                animator.SetBool("Grounded", false);
             }
         }
         // Check if character gained contact with ground this frame
@@ -75,6 +76,7 @@ public class PlatformerMovement : MonoBehaviour
         {
             jumpReleased = false;
             // Has landed, play landing sound and trigger landing animation
+            animator.SetBool("Grounded", true);
         }
         wasGrounded = isGrounded;
         
@@ -96,6 +98,7 @@ public class PlatformerMovement : MonoBehaviour
         
         // Write movement animation code here. (Suggestion: send your current velocity into the Animator for both the x- and y-axis.)
         animator.SetFloat("MoveX", MathF.Abs(velocity.x));
+        animator.SetFloat("MoveY", velocity.y);
     }
 
     private bool IsGrounded()

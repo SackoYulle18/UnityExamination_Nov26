@@ -5,6 +5,7 @@ using UnityEngine.Events;
 public class KeyLock : MonoBehaviour
 {
     private SetSpriteBasedOnColor ssboc;
+    private bool unlockable;
 
     public UnityEvent onUnlock;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -21,11 +22,9 @@ public class KeyLock : MonoBehaviour
                           other.gameObject.transform.position.y) > 0.5f) 
                 return;
             
-            //PlayerProperties pp = other.gameObject.GetComponent<PlayerProperties>();
-            if(other.gameObject.TryGetComponent(out PlayerProperties pp))
+            if(unlockable)
             {
-                if (pp.HasKeyOfColor(ssboc.SelectedSpriteColor))
-                    UnLock();
+                UnLock();
             }
         }
     }
@@ -34,5 +33,10 @@ public class KeyLock : MonoBehaviour
     {
         Debug.Log($"The {gameObject.name} has been unlocked");
         onUnlock?.Invoke();
+    }
+
+    public void CollectKeyByColor(SetSpriteBasedOnColor.SpriteColor color)
+    {
+        unlockable = true;
     }
 }

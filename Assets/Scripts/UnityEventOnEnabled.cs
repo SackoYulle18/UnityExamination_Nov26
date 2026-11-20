@@ -6,14 +6,14 @@ using UnityEngine.Events;
 
 public class UnityEventOnEnabled : MonoBehaviour
 {
-    public UnityEvent customEvent;
+    public UnityEvent onEnabled;
 
     private bool toggle = true;
 
     private void OnEnable()
     {
         if (toggle)
-            customEvent.Invoke();
+            onEnabled.Invoke();
         
         Debug.Log("Unity Event invoked in " + gameObject.name);
         toggle = false;
